@@ -26,7 +26,7 @@ class PizzaOrder(models.Model):
 
 
 class PizzaOrderUserChoice(models.Model):
-    name = models.CharField(max_length=80)
+    name = models.CharField(max_length=24)
     order = models.ForeignKey(PizzaOrder, related_name='user_choices')
 
     def get_types_as_csv(self):
@@ -40,7 +40,7 @@ class PizzaOrderUserChoice(models.Model):
 
 
 class PizzaType(models.Model):
-    name = models.CharField(max_length=80)
+    name = models.CharField(max_length=24)
     user_choice = models.ForeignKey(PizzaOrderUserChoice, related_name='pizza_types')
 
     def __str__(self):

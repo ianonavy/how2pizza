@@ -14,12 +14,12 @@ def new_order(request):
 def orders(request, order_uuid):
     order = get_object_or_404(PizzaOrder, id=order_uuid)
     if request.method == 'POST':
-        name = request.POST.get('name')
+        name = request.POST.get('name')[:24]
         request.session['name'] = name
         user_choice, created = PizzaOrderUserChoice.objects.get_or_create(
             name=name,
             order=order)
-        chosen_types = set([t.lower()
+        chosen_types = set([t.lower()[:24]
                             for t in request.POST.getlist('types[]')
                             if t != ''])
         pizza_types = PizzaType.objects.filter(user_choice=user_choice).all()

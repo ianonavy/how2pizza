@@ -1,7 +1,5 @@
 What pizza would you like?
-Sanitize 80 characters
 Numbers only in how many people per pizza
-Click on name to update
 Add sanitization for comma
 Tooltip for people per pizza explaining for a 12-slice pizza and 4 slices per person, it's 3 people per pizza
 HTML5 local storage persistence of the pizza number

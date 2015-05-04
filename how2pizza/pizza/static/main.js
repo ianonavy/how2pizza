@@ -9,6 +9,7 @@ function addNewPizza() {
 		newType.type = 'text';
 		newType.className = 'pizza-type';
 		newType.name = 'types[]';
+		newType.maxLength = '24';
 		typesList.appendChild(newType);
 		newType.focus();
 	}

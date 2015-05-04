@@ -28,7 +28,7 @@
 					{% csrf_token %}
 					<div class="form-group">
 						<label for="name">What is your name?</label>
-						<input id="name" type="text" name="name" required{% if name %} value="{{ name }}"{% endif %}>
+						<input id="name" type="text" name="name" required{% if name %} value="{{ name }}" {% endif %} maxlength="24">
 					</div>
 					<div class="form-group">
 						<label>Pick your pizza:</label>
@@ -41,7 +41,7 @@
 					<div class="form-group">
 						<label>Or add your own:</label>
 						<div id="types-list">
-							<input name="types[]" type="text" class="pizza-type">
+							<input name="types[]" type="text" class="pizza-type" maxlength="24">
 						</div>
 						<a id="add-pizza" href="#">Add another</a>
 					</div>
