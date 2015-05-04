@@ -103,6 +103,12 @@ function updatePizzaList() {
 	var choices = getChoices();
 	var counts = getPizzaTypesByFrequency(choices);
 	var peoplePerPizza = getPeoplePerPizza();
+	if (peoplePerPizza <= 0 || isNaN(peoplePerPizza)) {
+		var li = document.createElement('li');
+		li.textContent = "Nothing. If you're not feeding anyone, why order?";
+		pizzaList.appendChild(li);
+		return;
+	}
 	var numPizzas = Object.keys(choices).length / peoplePerPizza;
 	var pizzasToBuy = {}
 	for (var i = 0; i < numPizzas; i++) {
@@ -127,7 +133,6 @@ function updatePizzaList() {
 }
 
 function updateWhatYouWant() {
-	console.log(this);
 	var name = this.children[0].textContent;
 	var types = this.children[1].textContent.split(', ');
 	document.getElementById('name').value = name;
@@ -160,7 +165,7 @@ function main() {
 		userChoices[i].addEventListener('click', updateWhatYouWant.bind(userChoices[i]));
 	}
 	document.getElementById("reset-form").addEventListener('click', resetForm);
-	document.getElementById('people-per-pizza').value = localStorage.getItem('ppp');
+	document.getElementById('people-per-pizza').value = localStorage.getItem('ppp') || '3';
 	updatePizzaList();
 }
 
