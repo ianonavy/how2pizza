@@ -32,9 +32,11 @@
 					</div>
 					<div class="form-group">
 						<label>Pick your pizza:</label>
-						{% for pizza_type in order.get_pizza_types %}
-						<label><input name="types[]" type="checkbox" value="{{ pizza_type }}"{% if user_choice and pizza_type in user_choice.get_pizza_types %}checked{% endif %}>{{ pizza_type }}</label>
-						{% endfor %}
+						<div id="existing-types">
+							{% for pizza_type in order.get_pizza_types %}
+							<label><input name="types[]" type="checkbox" value="{{ pizza_type }}"{% if user_choice and pizza_type in user_choice.get_pizza_types %}checked{% endif %}>{{ pizza_type }}</label>
+							{% endfor %}
+						</div>
 					</div>
 					<div class="form-group">
 						<label>Or add your own:</label>

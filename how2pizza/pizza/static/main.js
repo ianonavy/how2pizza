@@ -123,9 +123,30 @@ function updatePizzaList() {
 	}
 }
 
+function updateWhatYouWant() {
+	console.log(this);
+	var name = this.children[0].textContent;
+	var types = this.children[1].textContent.split(', ');
+	document.getElementById('name').value = name;
+	var checkboxDiv = document.getElementById('existing-types');
+	for (var i = 0, len = checkboxDiv.children.length; i < len; i++) {
+		var checkbox = checkboxDiv.children[i].firstChild;
+		checkbox.checked = false;
+		for (var j = 0, len2 = types.length; j < len2; j++) {
+			if (checkbox.value == types[j]) {
+				checkbox.checked = true;
+			}
+		}
+	}
+}
+
 function main() {
 	document.getElementById("add-pizza").addEventListener('focus', addNewPizza);
 	document.getElementById("people-per-pizza").addEventListener('keyup', updatePizzaList);
+	var userChoices = document.getElementsByClassName("user-choice");
+	for (var i = 0, len = userChoices.length; i < len; i++) {
+		userChoices[i].addEventListener('click', updateWhatYouWant.bind(userChoices[i]));
+	}
 	updatePizzaList();
 }
 
