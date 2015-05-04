@@ -1,7 +1,7 @@
 {% extends 'pizza/base.html' %}
 
 {% block title %}How2Pizza{% if order.name %} | {{ order.name }}{% endif %}{% endblock %}
-{% block header %}{% if order.name %}{{ order.name }}{% else %}How2Pizza{% endif %}{% endblock %}
+{% block header %}{% if order.name %}{{ order.name }}{% else %}{% endif %}{% endblock %}
 
 {% block content %}
 		<div class="g--10 m--1">

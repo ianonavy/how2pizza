@@ -1,3 +1,11 @@
+a.logo-link {
+	background: none;
+	text-decoration: none;
+}
+.logo {
+	width: 216px;
+	margin: 0 24px -14px 0;
+}
 .tile td {
 	padding: 0;
 }

@@ -11,7 +11,10 @@
 <body>
 	<main class="g--12 m--0 no-margin-vertical">
 		<header class="container--baseline container--wrap-m">
-			<h1 class="g--8 m--1 g-m--10 m-m--1">{% block header %}How2Pizza{% endblock header %}</h1>
+			<div class="g--8 m--1 g-m--10 m-m--1">
+				<a class="logo-link" href="{% url 'home' %}"><img class="logo" src="{% static 'img/logo.png' %}"></a>
+				<h1 class="inline">{% block header %}{% endblock header %}</h1>
+			</div>
 			<input type="checkbox" id="nav--horizontal-responsive">
 			<label for="nav--horizontal-responsive">MENU</label>
 			<nav class="g--2 g-m--12 nav--horizontal">
