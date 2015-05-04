@@ -1,5 +1,7 @@
 {% extends 'pizza/base.html' %}
 
+{% block header %}{% if order.name %}{{ order.name }}{% else %}How2Pizza{% endif %}{% endblock %}
+
 {% block content %}
 		<div class="g--10 m--1 container container--wrap--m">
 			<div class="g--5 g-m--12 fade-in-from-left card">

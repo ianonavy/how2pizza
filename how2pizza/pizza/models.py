@@ -12,6 +12,7 @@ def random_number():
 
 class PizzaOrder(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    name = models.CharField(max_length=36, default="How2Pizza")
     created_at = models.DateTimeField(auto_now=True, blank=False, null=False)
 
     def get_absolute_url(self):

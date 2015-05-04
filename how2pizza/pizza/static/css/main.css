@@ -1,7 +1,15 @@
 .tile td {
 	padding: 0;
 }
+.event-name {
+	width: 240px !important;
+	font-size: 18px;
+}
+.event-name:valid {
+	background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 96%, #E74C3C 96%) no-repeat scroll -240px 0px / 200px 100% transparent !important;
+}
 .new-order {
+	width: 100%;
 	font-size: 18px;
 	padding: 18px;
 	text-align: center;

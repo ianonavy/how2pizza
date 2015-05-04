@@ -7,7 +7,10 @@ def home(request):
 
 
 def new_order(request):
-    order = PizzaOrder.objects.create()
+    name = None
+    if request.method == 'POST':
+        name = request.POST.get('name')
+    order = PizzaOrder.objects.create(name=name)
     return redirect(order)
 
 
