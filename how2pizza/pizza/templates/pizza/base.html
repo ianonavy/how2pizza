@@ -5,31 +5,7 @@
 	<meta charset="UTF-8">
 	<title>How2Pizza</title>
 	<link rel="stylesheet" href="{% static 'css/surface_styles.css' %}">
-	<style type="text/css">
-		.tile td {
-			padding: 0;
-		}
-		.new-order {
-			font-size: 18px;
-			padding: 18px;
-			text-align: center;
-		}
-		.container--hcenter {
-			justify-content: center;
-		}
-		.ad {
-			width: 728px;
-			margin: 0 auto;
-		}
-		main {
-			display: flex;
-			min-height: 100vh;
-			flex-direction: column;
-		}
-		section {
-			flex: 1;
-		}
-	</style>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
 </head>
 <body>
 	<main class="g--12 m--0 no-margin-vertical">
@@ -48,7 +24,7 @@
 		{% block content %}
 		{% endblock content %}
 		<div class="container--hcenter">
-			<img class="ad" src="https://lh6.ggpht.com/41LFWBytPnxKsfZf6mivs6ba7qdOBtfk9-7MzWSMqwC3IFOvaXd8rejFiyeXKfBOK16mMEopeA=w320">
+			<img class="ad fade-in-from-bottom anim-delay--10" src="https://lh6.ggpht.com/41LFWBytPnxKsfZf6mivs6ba7qdOBtfk9-7MzWSMqwC3IFOvaXd8rejFiyeXKfBOK16mMEopeA=w320">
 		</div>
 		</section>
 		<footer class="container--wrap no-margin-vertical">

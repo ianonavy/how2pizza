@@ -16,40 +16,12 @@
 						<td>cheese, pepperoni, hawaiian</td>
 					</tr>
 					<tr>
-						<td>Person 1</td>
-						<td>cheese, pepperoni, hawaiian</td>
+						<td>Person 2</td>
+						<td>cheese, hawaiian</td>
 					</tr>
 					<tr>
-						<td>Person 1</td>
-						<td>cheese, pepperoni, hawaiian</td>
-					</tr>
-					<tr>
-						<td>Person 1</td>
-						<td>cheese, pepperoni, hawaiian</td>
-					</tr>
-					<tr>
-						<td>Person 1</td>
-						<td>cheese, pepperoni, hawaiian</td>
-					</tr>
-					<tr>
-						<td>Person 1</td>
-						<td>cheese, pepperoni, hawaiian</td>
-					</tr>
-					<tr>
-						<td>Person 1</td>
-						<td>cheese, pepperoni, hawaiian</td>
-					</tr>
-					<tr>
-						<td>Person 1</td>
-						<td>cheese, pepperoni, hawaiian</td>
-					</tr>
-					<tr>
-						<td>Person 1</td>
-						<td>cheese, pepperoni, hawaiian</td>
-					</tr>
-					<tr>
-						<td>Person 1</td>
-						<td>cheese, pepperoni, hawaiian</td>
+						<td>Person 3</td>
+						<td>cheese, veggie</td>
 					</tr>
 				</table>
 			</div>
@@ -57,10 +29,24 @@
 				<h3>What you want:</h3>
 				<form method="POST">
 					{% csrf_token %}
-					<label for="name">What is your name?</label>
-					<input id="name" class="form-control" type="text">
-					<label for="types">Pick your pizza:</label>
-					<input id="types" name="types[]" class="form-control" type="text">
+					<div class="form-group">
+						<label for="name">What is your name?</label>
+						<input id="name" type="text">
+					</div>
+					<div class="form-group">
+						<label>Pick your pizza:</label>
+						<label><input type="checkbox">cheese</label>
+						<label><input type="checkbox">hawaiian</label>
+						<label><input type="checkbox">pepperoni</label>
+						<label><input type="checkbox">veggie</label>
+					</div>
+					<div class="form-group">
+						<label>Or add your own:</label>
+						<div id="types-list">
+							<input name="types[]" type="text" class="pizza-type">
+						</div>
+						<a id="add-pizza" href="#">Add another</a>
+					</div>
 					<input class="btn--raised btn--primary" type="submit" value="Submit">
 				</form>
 			</div>
