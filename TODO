@@ -1,2 +1,9 @@
 Numbers only in how many people per pizza
 Tooltip for people per pizza explaining for a 12-slice pizza and 4 slices per person, it's 3 people per pizza
+Write FAQ page
+Write support page
+Add to FAQ: why people per pizza and not per-person setting
+Live updating via websockets
+Add text for how to share
+mailto link with fancy subject and ody
+Remove the table when it's blank
