@@ -1,7 +1,5 @@
 {% extends 'pizza/base.html' %}
 
-{% block header %}Sample Pizza Party{% endblock header %}
-
 {% block content %}
 		<div class="g--10 m--1 container container--wrap--m">
 			<div class="g--5 g-m--12 fade-in-from-left card">
@@ -11,18 +9,12 @@
 						<td>Name</td>
 						<td>Types</td>
 					</tr>
+					{% for choice in order.user_choices.all %}
 					<tr>
-						<td>Person 1</td>
-						<td>cheese, pepperoni, hawaiian</td>
+						<td>{{ choice.name }}</td>
+						<td>{{ choice.get_types_as_csv }}</td>
 					</tr>
-					<tr>
-						<td>Person 2</td>
-						<td>cheese, hawaiian</td>
-					</tr>
-					<tr>
-						<td>Person 3</td>
-						<td>cheese, veggie</td>
-					</tr>
+					{% endfor %}
 				</table>
 			</div>
 			<div class="g--3 g-m--12 fade-in-from-left card nudge--left nudge--right no-nudge--m">
@@ -31,14 +23,13 @@
 					{% csrf_token %}
 					<div class="form-group">
 						<label for="name">What is your name?</label>
-						<input id="name" type="text">
+						<input id="name" type="text" name="name" required>
 					</div>
 					<div class="form-group">
 						<label>Pick your pizza:</label>
-						<label><input type="checkbox">cheese</label>
-						<label><input type="checkbox">hawaiian</label>
-						<label><input type="checkbox">pepperoni</label>
-						<label><input type="checkbox">veggie</label>
+						{% for pizza_type in order.get_pizza_types %}
+						<label><input name="types[]" type="checkbox" value="{{ pizza_type }}">{{ pizza_type }}</label>
+						{% endfor %}
 					</div>
 					<div class="form-group">
 						<label>Or add your own:</label>
