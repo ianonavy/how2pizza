@@ -19,9 +19,9 @@ def orders(request, order_uuid):
         user_choice, created = PizzaOrderUserChoice.objects.get_or_create(
             name=name,
             order=order)
-        chosen_types = set([t.lower()[:24]
+        chosen_types = set([t.lower().replace(',', '')[:24]
                             for t in request.POST.getlist('types[]')
-                            if t != ''])
+                            if t.strip() != ''])
         if chosen_types == set():
             user_choice.delete()
         else:
