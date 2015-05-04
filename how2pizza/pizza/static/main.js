@@ -55,7 +55,9 @@ function getPizzaTypesByFrequency(choices) {
 }
 
 function getPeoplePerPizza() {
-	return parseFloat(document.getElementById('people-per-pizza').value);
+	var ppp = parseFloat(document.getElementById('people-per-pizza').value);
+	localStorage.setItem('ppp', ppp);
+	return ppp;
 }
 
 function getMostPopularPizzaTypeBesidesCheese(counts, types) {
@@ -158,6 +160,7 @@ function main() {
 		userChoices[i].addEventListener('click', updateWhatYouWant.bind(userChoices[i]));
 	}
 	document.getElementById("reset-form").addEventListener('click', resetForm);
+	document.getElementById('people-per-pizza').value = localStorage.getItem('ppp');
 	updatePizzaList();
 }
 
