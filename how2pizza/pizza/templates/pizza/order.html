@@ -4,17 +4,22 @@
 		<div class="g--10 m--1 container container--wrap--m">
 			<div class="g--5 g-m--12 fade-in-from-left card">
 				<h3>What they want:</h3>
-				<table class="tile">
-					<tr class="table-header">
-						<td>Name</td>
-						<td>Types</td>
-					</tr>
-					{% for choice in order.user_choices.all %}
-					<tr>
-						<td>{{ choice.name }}</td>
-						<td>{{ choice.get_types_as_csv }}</td>
-					</tr>
-					{% endfor %}
+				<table id="user-choices" class="tile">
+					<thead>
+						<!-- should really be th but Surface... -->
+						<tr class="table-header">
+							<td>Name</td>
+							<td>Types</td>
+						</tr>
+					</thead>
+					<tbody>
+						{% for choice in order.user_choices.all %}
+						<tr class="user-choice">
+							<td>{{ choice.name }}</td>
+							<td>{{ choice.get_types_as_csv }}</td>
+						</tr>
+						{% endfor %}
+					</tbody>
 				</table>
 			</div>
 			<div class="g--3 g-m--12 fade-in-from-left card nudge--left nudge--right no-nudge--m">
@@ -46,8 +51,7 @@
 				<label for="people-per-pizza">How many people per pizza?</label>
 				<input type="text" id="people-per-pizza" value="3" class="form-control">
 				<label>You should buy:</label>
-				<ul>
-					<li>1 cheese</li>
+				<ul id="pizza-list">
 				</ul>
 			</div>
 		</div>
