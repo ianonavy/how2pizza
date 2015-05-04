@@ -2,49 +2,76 @@
 
 {% block header %}Sample Pizza Party{% endblock header %}
 
-
 {% block content %}
-<section>
-	<div class="row">
-		<div class="col-md-5">
-			<label>What other people want:</label>
-			<ul class="list-group">
-				<li class="list-group-item">cheese, pepperoni, hawaiian</li>
-			</ul>
-		</div>
-		<div class="col-md-4">
-			<form class="form well" method="POST">
-				{% csrf_token %}
-				<div class="form-group">
-					<label for="name">What is your name?</label>
-					<input id="name" class="form-control" type="text" placeholder="John">
-				</div>
-				<div class="form-group">
-					<label for="types">Pick your pizza:</label>
-					<div class="types">
-						<div class="input-group types">
-							<input name="types[]" class="form-control" type="text">
-							<span class="input-group-btn">
-								<button class="add-type btn btn-default" type="button">+</button>
-							</span>
-						</div>
-					</div>
-				</div>
-				<div class="form-group">
-					<input class="form-control btn btn-primary" type="submit" value="Submit">
-				</div>
-			</form>
-		</div>
-		<div class="col-md-3">
-			<div class="form-group">
-				<label>How many people can one pizza feed?</label>
-				<input type="text" id="people-per-pizza" value="3" class="form-control">
+		<div class="g--10 m--1 container container--wrap--m">
+			<div class="g--5 g-m--12 fade-in-from-left card">
+				<h3>What they want:</h3>
+				<table class="tile">
+					<tr class="table-header">
+						<td>Name</td>
+						<td>Types</td>
+					</tr>
+					<tr>
+						<td>Person 1</td>
+						<td>cheese, pepperoni, hawaiian</td>
+					</tr>
+					<tr>
+						<td>Person 1</td>
+						<td>cheese, pepperoni, hawaiian</td>
+					</tr>
+					<tr>
+						<td>Person 1</td>
+						<td>cheese, pepperoni, hawaiian</td>
+					</tr>
+					<tr>
+						<td>Person 1</td>
+						<td>cheese, pepperoni, hawaiian</td>
+					</tr>
+					<tr>
+						<td>Person 1</td>
+						<td>cheese, pepperoni, hawaiian</td>
+					</tr>
+					<tr>
+						<td>Person 1</td>
+						<td>cheese, pepperoni, hawaiian</td>
+					</tr>
+					<tr>
+						<td>Person 1</td>
+						<td>cheese, pepperoni, hawaiian</td>
+					</tr>
+					<tr>
+						<td>Person 1</td>
+						<td>cheese, pepperoni, hawaiian</td>
+					</tr>
+					<tr>
+						<td>Person 1</td>
+						<td>cheese, pepperoni, hawaiian</td>
+					</tr>
+					<tr>
+						<td>Person 1</td>
+						<td>cheese, pepperoni, hawaiian</td>
+					</tr>
+				</table>
 			</div>
-			<label>You should buy:</label>
-			<ul>
-				<li>1 cheese</li>
-			</ul>
+			<div class="g--3 g-m--12 fade-in-from-left card nudge--left nudge--right no-nudge--m">
+				<h3>What you want:</h3>
+				<form method="POST">
+					{% csrf_token %}
+					<label for="name">What is your name?</label>
+					<input id="name" class="form-control" type="text">
+					<label for="types">Pick your pizza:</label>
+					<input id="types" name="types[]" class="form-control" type="text">
+					<input class="btn--raised btn--primary" type="submit" value="Submit">
+				</form>
+			</div>
+			<div class="g--4 g-m--12 fade-in-from-left card">
+				<h3>What to order:</h3>
+				<label for="people-per-pizza">How many people per pizza?</label>
+				<input type="text" id="people-per-pizza" value="3" class="form-control">
+				<label>You should buy:</label>
+				<ul>
+					<li>1 cheese</li>
+				</ul>
+			</div>
 		</div>
-	</div>
-</section>
 {% endblock content %}

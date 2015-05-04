@@ -4,31 +4,52 @@
 <head>
 	<meta charset="UTF-8">
 	<title>How2Pizza</title>
-	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="{% static 'css/surface_styles.css' %}">
 	<style type="text/css">
-		.aligner {
-			display: flex;
-			align-items: center;
+		.tile td {
+			padding: 0;
+		}
+		.new-order {
+			font-size: 18px;
+			padding: 18px;
+			text-align: center;
+		}
+		.container--hcenter {
 			justify-content: center;
-			height: 100vh;
 		}
-		.main {
-			max-width: 960px;
-			max-height: 100%;
+		main {
+			display: flex;
+			min-height: 100vh;
+			flex-direction: column;
 		}
-		.types {
-			margin-bottom: 8px;
+		section {
+			flex: 1;
 		}
 	</style>
 </head>
 <body>
-	<div class="aligner">
-		<div class="main">
-			<h1>{% block header %}How2Pizza{% endblock header %}</h1>
-{% block content %}
-{% endblock content %}
-		</div>
-	</div>
+	<main class="g--12 m--0 no-margin-vertical">
+		<header class="container--baseline container--wrap-m">
+			<h1 class="g--4 m--1 g-m--10 m-m--1">{% block header %}How2Pizza{% endblock header %}</h1>
+			<nav class="g--4 g-m--10 m-m--1 nav--horizontal">
+				<ul>
+					<li><a href="{% url 'home' %}">Home</a></li>
+					<li><a href="{% url 'orders' %}">New Order</a></li>
+					<li><a href="#">FAQ</a></li>
+					<li><a href="#">Support</a></li>
+				</ul>
+			</nav>
+		</header>
+		<section>
+		{% block content %}
+		{% endblock content %}
+		</section>
+		<footer class="container--wrap no-margin-vertical">
+			<div class="g--10 m--1 color--white">
+				Copyright &copy; 2015 <a href="https://ianonavy.com/">Ian Adam Naval</a>.
+			</div>
+		</footer>
+	</main>
 	<script src="{% static 'main.js' %}"></script>
 </body>
 </html>
