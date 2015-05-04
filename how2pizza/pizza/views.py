@@ -22,14 +22,17 @@ def orders(request, order_uuid):
         chosen_types = set([t.lower()[:24]
                             for t in request.POST.getlist('types[]')
                             if t != ''])
-        pizza_types = PizzaType.objects.filter(user_choice=user_choice).all()
-        pizza_types = set([p.name for p in pizza_types])
-        types_to_delete = pizza_types - chosen_types
-        missing_types = chosen_types - pizza_types
-        PizzaType.objects.filter(user_choice=user_choice,
-                                 name__in=types_to_delete).delete()
-        for missing_type in missing_types:
-            PizzaType.objects.create(name=missing_type, user_choice=user_choice)
+        if chosen_types == set():
+            user_choice.delete()
+        else:
+            types = PizzaType.objects.filter(user_choice=user_choice).all()
+            types = set([p.name for p in types])
+            types_to_delete = types - chosen_types
+            missing_types = chosen_types - types
+            PizzaType.objects.filter(user_choice=user_choice,
+                                     name__in=types_to_delete).delete()
+            for missing in missing_types:
+                PizzaType.objects.create(name=missing, user_choice=user_choice)
     my_name = request.session.get('name')
     if my_name:
         try:
