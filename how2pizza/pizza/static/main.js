@@ -141,6 +141,15 @@ function updateWhatYouWant() {
 	}
 }
 
+function resetForm() {
+	document.getElementById('name').value = '';
+	var checkboxDiv = document.getElementById('existing-types');
+	for (var i = 0, len = checkboxDiv.children.length; i < len; i++) {
+		var checkbox = checkboxDiv.children[i].firstChild;
+		checkbox.checked = false;
+	}
+}
+
 function main() {
 	document.getElementById("add-pizza").addEventListener('focus', addNewPizza);
 	document.getElementById("people-per-pizza").addEventListener('keyup', updatePizzaList);
@@ -148,6 +157,7 @@ function main() {
 	for (var i = 0, len = userChoices.length; i < len; i++) {
 		userChoices[i].addEventListener('click', updateWhatYouWant.bind(userChoices[i]));
 	}
+	document.getElementById("reset-form").addEventListener('click', resetForm);
 	updatePizzaList();
 }
 
