@@ -5,7 +5,7 @@
 
 {% block content %}
 		<div class="g--10 m--1">
-			You can share this page with friends via <a href="mailto:?subject=Pizza for {{ order.name }}&amp;body=Hi all,%0A%0AI'm ordering pizza. Please visit {{ request.build_absolute_uri }} and fill out your preferences so we can add you to the head count.%0A%0AThanks,">email</a> or by just directing them to this URL.
+			You can share this page with friends via <a href="mailto:?subject=Pizza{% if order.name %} for {{ order.name }}{% endif %}&amp;body=Hi all,%0A%0AI'm ordering pizza. Please visit {{ request.build_absolute_uri }} and fill out your preferences so we can add you to the head count.%0A%0AThanks,%0A{{ request.session.name }}">email</a> or by just directing them to this URL.
 		</div>
 		<div class="g--10 m--1 container container--wrap--m">
 			<div class="g--5 g-m--12 fade-in-from-left card">
