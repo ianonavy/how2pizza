@@ -5,6 +5,5 @@ Write support page
 Add to FAQ: why people per pizza and not per-person setting
 Live updating via websockets
 Validation should display error on unfocus
-Make new order a verb
 Strategies for pizza algorithm
 Long titles don't work on mobile
