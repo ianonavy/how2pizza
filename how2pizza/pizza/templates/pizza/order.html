@@ -23,12 +23,12 @@
 					{% csrf_token %}
 					<div class="form-group">
 						<label for="name">What is your name?</label>
-						<input id="name" type="text" name="name" required>
+						<input id="name" type="text" name="name" required{% if name %} value="{{ name }}"{% endif %}>
 					</div>
 					<div class="form-group">
 						<label>Pick your pizza:</label>
 						{% for pizza_type in order.get_pizza_types %}
-						<label><input name="types[]" type="checkbox" value="{{ pizza_type }}">{{ pizza_type }}</label>
+						<label><input name="types[]" type="checkbox" value="{{ pizza_type }}"{% if user_choice and pizza_type in user_choice.get_pizza_types %}checked{% endif %}>{{ pizza_type }}</label>
 						{% endfor %}
 					</div>
 					<div class="form-group">

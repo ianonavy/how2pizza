@@ -30,8 +30,10 @@ class PizzaOrderUserChoice(models.Model):
     order = models.ForeignKey(PizzaOrder, related_name='user_choices')
 
     def get_types_as_csv(self):
-        print(self.pizza_types.all())
         return ', '.join(sorted(p.name for p in self.pizza_types.all()))
+
+    def get_pizza_types(self):
+        return {unicode(p.name) for p in self.pizza_types.all()}
 
     def __str__(self):
         return self.name
