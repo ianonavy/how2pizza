@@ -9,6 +9,7 @@
 		<div class="g--10 m--1 container container--wrap--m">
 			<div class="g--5 g-m--12 fade-in-from-left card">
 				<h3>What they want:</h3>
+				{% if order.user_choices.all %}
 				<table id="user-choices" class="tile">
 					<thead>
 						<tr class="table-header">
@@ -25,6 +26,9 @@
 						{% endfor %}
 					</tbody>
 				</table>
+				{% else %}
+				Your friends have not yet submitted their preferences. Be the first!
+				{% endif %}
 			</div>
 			<div class="g--3 g-m--12 fade-in-from-left card nudge--left nudge--right no-nudge--m">
 				<h3>What you want:</h3>

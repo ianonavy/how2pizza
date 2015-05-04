@@ -4,7 +4,6 @@ Write FAQ page
 Write support page
 Add to FAQ: why people per pizza and not per-person setting
 Live updating via websockets
-Remove the table when it's blank
 Validation should display error on unfocus
 Make new order a verb
 Strategies for pizza algorithm
